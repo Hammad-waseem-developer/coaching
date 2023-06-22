@@ -11,35 +11,34 @@ class SubjectController extends Controller
     // Class
     public function Subject(){
 
-        $data = Db::select('select * from subject');
+        $data = Db::select('select * from subject inner join class on class.class_id = subject.class_id');
 
         return view('DashboardView.subject',compact('data'));
     }
 // Classes
     public function SubjectAddSubject(){
-
-
-        return view('DashboardView.subject-add-subject');
+        $class = DB::select('select * from class');
+        return view('DashboardView.subject-add-subject',compact('class'));
     }
 
     public function SubjectStoreSubject(Request $req){
         $req->validate(
             [
                 'subject_name' => 'required | max:30',
+                'class' => 'required',
             ]
             );
 
-        Db::insert('insert into subject(subject_name) values(?)',[$req->subject_name]);
+        Db::insert('insert into subject(subject_name,class_id) values(?,?)',[$req->subject_name,$req->class]);
         return redirect('/dashboard/subject');
     }
 
     public function SubjectEditSubject($id){
 
         $subject = Db::select('select * from subject where subject_id = ?',[$id]);
-
+        $class = DB::select('select * from class');
         if($subject != null){
-
-            return view('DashboardView.subject-edit-subject',compact('subject'));
+            return view('DashboardView.subject-edit-subject',compact('subject','class'));
         }
 
         return redirect('/dashboard/subject');
@@ -51,7 +50,7 @@ class SubjectController extends Controller
 
         if($subject != null){
 
-            Db::update('update subject set subject_name = ? where subject_id = ?',[$req['subject_name'],$id]);
+            Db::update('update subject set subject_name = ? , class_id = ? where subject_id = ?',[$req['subject_name'],$req['class'],$id]);
 
         return redirect('/dashboard/subject');
 

@@ -7,7 +7,7 @@
     <div class="row no-gutters slider-text align-items-center justify-content-center">
     <div class="col-md-9 ftco-animate text-center">
     <h1 class="mb-2 bread">Contact Us</h1>
-    <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
+    <p class="breadcrumbs"><span class="mr-2"><a href="{{url('/')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Contact <i class="ion-ios-arrow-forward"></i></span></p>
     </div>
     </div>
     </div>
@@ -18,19 +18,19 @@
     <div class="col-md-3 d-flex">
     <div class="bg-light align-self-stretch box p-4 text-center">
     <h3 class="mb-4">Address</h3>
-    <p>198 West 21th Street, Suite 721 New York NY 10016</p>
+    <p>A-5/377,Bhittai Colony Main Stop, Korangi Crossing, Bhittai Colony (Near Dr Asif Clinic) Karachi, Sindh, Pakistan-74900</p>
     </div>
     </div>
     <div class="col-md-3 d-flex">
     <div class="bg-light align-self-stretch box p-4 text-center">
     <h3 class="mb-4">Contact Number</h3>
-    <p><a href="tel://1234567920">+ 1235 2355 98</a></p>
+    <p><a href="tel://1234567920">+92 331 3332259</a></p>
     </div>
     </div>
     <div class="col-md-3 d-flex">
     <div class="bg-light align-self-stretch box p-4 text-center">
     <h3 class="mb-4">Email Address</h3>
-    <p><a href="https://preview.colorlib.com/cdn-cgi/l/email-protection#244d4a424b645d4b5156574d50410a474b49"><span class="__cf_email__" data-cfemail="bfd6d1d9d0ffc6d0cacdccd6cbda91dcd0d2">[email&#160;protected]</span></a></p>
+    <p><a href="mailto:knewtoncoaching@gmail.com"><span class="__cf_email__" data-cfemail="bfd6d1d9d0ffc6d0cacdccd6cbda91dcd0d2">knewtoncoaching@gmail.com</span></a></p>
     </div>
     </div>
     <div class="col-md-3 d-flex">

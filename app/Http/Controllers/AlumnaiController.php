@@ -37,7 +37,7 @@ class AlumnaiController extends Controller
             ]
         );
 
-        // lanat he 
+        // lanat he
 
         $img = $req['alumnai_image'];
         $imgname = $img->getClientOriginalName();
@@ -69,7 +69,7 @@ class AlumnaiController extends Controller
     public function AlumniUpdateAlumni(Request $req, $id)
     {
 
-        
+
         $req->validate(
             [
                 'alumnai_name' => 'required | max:30',
@@ -90,7 +90,8 @@ class AlumnaiController extends Controller
                 $imgname = $img->getClientOriginalName();
                 $imgname = Str::random(8) . "_" . $imgname;
                 $img->move('public/alumnaiinfo', $imgname);
-                unlink('public/alumnaiinfo/' . $req['oldimg']);
+                $filepath = 'public/alumnaiinfo/' . $req->oldimg;
+                unlink($filepath);
             } else {
                 $imgname = $req['oldimg'];
             };
@@ -108,20 +109,20 @@ class AlumnaiController extends Controller
         return redirect('/dashboard/alumni');
     }
     public function AlumniDeleteAlumni($id){
-           
+
         $delete = Db::select('select * from alumnai where alumnai_id = ?',[$id]);
-        
+
         if($delete != null){
- 
+
          unlink('public/alumnaiinfo/'.$delete[0]->alumnai_image);
 
             Db::delete('delete from alumnai where alumnai_id = ?',[$id]);
          return redirect('/dashboard/alumni');
- 
+
         }
- 
+
         return redirect('/dashboard/alumni');
- 
- 
+
+
      }
 }

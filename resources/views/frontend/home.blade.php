@@ -160,10 +160,10 @@
                     <div class="img img-video d-flex align-items-center"
                         style="background-image: url({{ url('/') }}/public/frontend_assets/images/about-2.jpg);">
                         <div class="video justify-content-center">
-                            <a href="https://vimeo.com/45830194"
+                            {{-- <a href="https://vimeo.com/45830194"
                                 class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
                                 <span class="ion-ios-play"></span>
-                            </a>
+                            </a> --}}
                         </div>
                     </div>
                 </div>

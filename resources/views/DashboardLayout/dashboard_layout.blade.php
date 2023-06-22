@@ -339,7 +339,13 @@ font-weight: 700;
                                 </div>
                             </li>
 
-
+                            <li class="mb-1">
+                                <a href="{{ url('/dashboard/messages') }}">
+                                    <button class="btn  text-white align-items-center rounded w-100 text-start ">
+                                        User's Messages
+                                    </button>
+                                </a>
+                            </li>
 
 
                         </ul>

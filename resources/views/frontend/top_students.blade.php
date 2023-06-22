@@ -11,7 +11,7 @@
         <div class="row no-gutters slider-text align-items-center justify-content-center">
         <div class="col-md-9 ftco-animate text-center">
         <h1 class="mb-2 bread">Top Rank Students</h1>
-        <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Top Rank Students <i class="ion-ios-arrow-forward"></i></span></p>
+        <p class="breadcrumbs"><span class="mr-2"><a href="{{url('/')}}">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Top Rank Students <i class="ion-ios-arrow-forward"></i></span></p>
         </div>
         </div>
         </div>
@@ -31,13 +31,13 @@
         <span class="position mb-2">{{($alumnai->alumnai_achivement)}}</span>
         <div class="faded">
         <p>{{($alumnai->alumnai_qualification)}}</p>
-        <ul class="ftco-social text-center">
+        {{-- <ul class="ftco-social text-center">
         <li class="ftco-animate">Student Id: {{$alumnai->field_id}}</li>
         <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
         <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
         <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
         <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-        </ul>
+        </ul> --}}
         </div>
         </div>
         </div>

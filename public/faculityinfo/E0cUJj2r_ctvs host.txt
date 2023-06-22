@@ -1,0 +1,7 @@
+username  if0_34365056!
+
+MySQL DB Name  if0_34365056_ctvs
+
+MySQL User Name  if0_34365056
+
+MySQL Host Name  sql312.infinityfree.com

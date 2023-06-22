@@ -96,7 +96,7 @@ class StudentController extends Controller
     public function StudentUpdateStudent(Request $req, $id){
         $req->validate(
             [
-             'student_name' => 'required | max:30',
+            'student_name' => 'required | max:30',
             'student_fname' => 'required | max:30',
             'student_contact' => 'required | max:12',
             'father_contact' => 'required | max:12',
@@ -122,7 +122,8 @@ class StudentController extends Controller
                 $imgname = $img->getClientOriginalName();
                 $imgname = Str::random(8) . "_" . $imgname;
                 $img->move('public/student_pic', $imgname);
-
+                $filePath = 'public/student_pic/' . $req->oldpic;
+                unlink($filePath);
             }
 
                 else{

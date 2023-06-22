@@ -13,18 +13,20 @@
             <br>
             <br>
             <div class="badge bg-danger p-2">{{session()->get('status')}}</div>
-				<div class="table-responsive table-striped my-5">
+				<div class="table-responsive table-striped">
 					<table class="table table-striped table-bordered">
                     <thead>
                       <tr>
-                        <th style="width: 70%;">Subject</th>
+                        <th>Subject</th>
+                        <th>Class</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
 						@foreach ($data as $item)
                       <tr>
-                        <td class="text-nowrap">{{$item->subject_name}}</td>
+                        <td>{{$item->subject_name}}</td>
+                        <td>{{$item->class_name}}</td>
 						<td>
 							<a href="{{ url('/dashboard/subject-edit-subject')}}/{{$item->subject_id}}"><button class="btn btn-primary">Edit</button></a>
 							<a onclick="deletesubject({{$item->subject_id}})"><button class="btn btn-danger">Delete</button></a>

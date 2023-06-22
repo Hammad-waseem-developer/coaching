@@ -72,7 +72,6 @@
                             {{-- ADMIN VIEW --}}
                             {{-- FACULITY VIEW --}}
                         <h1 class="text-center my-4">Faculty</h1>
-                        <a href="{{ url('/dashboard/faculty-add-faculty') }}" class="btn btn-primary">Add Faculty</a>
                         <div class="table-responsive table-striped my-5">
                             <table class="table table-striped table-bordered">
                                 <thead>

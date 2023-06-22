@@ -48,8 +48,7 @@
                                     class="icon-paper-plane"></span></div>
                             <div class="text">
                                 <span>Email</span>
-                                <span><a href="mailto:huzaifaW@gmail.com" class="__cf_email__"
-                                        data-cfemail="f1889e8483949c90989db1949c90989ddf929e9c">[huzaifakhanwaseem2233@gmail.com]</a></span>
+                                <span><a href="mailto:knewtoncoaching@gmail.com" class="__cf_email__">[knewtoncoaching@gmail.com]</a></span>
                             </div>
                         </div>
                         <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
@@ -57,7 +56,7 @@
                                     class="icon-phone2"></span></div>
                             <div class="text">
                                 <span>Call</span>
-                                <span><a href="tel:903190283675">Call Us: + 903190283675</a></span>
+                                <span><a href="https://wa.me/+923313332259" target="_blank">Call Us: +92 331 3332259</a></span>
                             </div>
                         </div>
 
@@ -81,12 +80,14 @@
                     <li class="nav-item"><a href="{{ url('/aboutus') }}" class="nav-link">About Us</a></li>
                     <li class="nav-item"><a href="{{ url('/contact') }}" class="nav-link">Contact Us</a></li>
 
-                    @if (session()->has('student_email'))
+                    @if (session()->has('student_email') || session()->has('teacher_id'))
                     {{-- <li class="nav-item"><a class="nav-link">{{ session()->get('student_email') }}</a></li> --}}
                     <li class="nav-item"><a href="{{ url('/announce') }}" class="nav-link">Announcement</a></li>
                     <li class="nav-item"><a href="{{ url('/student-logout') }}" class="nav-link"
                         style="color:rgb(255, 116, 116);">Logout</a></li>
+                        @if (session()->has('student_email') )
                         <li class="nav-item"><a href="{{ url('/my-profile') }}" class="nav-link bg-primary">My Profile</a></li>
+                        @endif
                     @else
                     <div class="dropdown" style="padding-top: 1.3rem;">
                         <li class="nav-item">

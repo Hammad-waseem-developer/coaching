@@ -135,12 +135,13 @@ class WebController extends Controller
 
     public function myprofile(){
         $student_id = session()->get('student_id');
-        $student = DB::select('select * from student_test inner join student on student.student_id = student_test.student_id inner join test on test.test_id = student_test.test_id INNER JOIN faculity on student.field_id = faculity.faculity_field inner join class on class.class_id = student.class_id inner join field on field.field_id = student.field_id inner join session on session.session_id = student.session_id where student.student_id = ?',[$student_id]);
-        if($student != NULL){
-            return view('frontend.my-profile', compact('student'));
-        }else{
-            return redirect('/');
-        }
+        $student = DB::select('select * from student inner join session on session.session_id = student.session_id inner join class on class.class_id = student.class_id inner join field on field.field_id = student.field_id where student.student_id = ?', [$student_id]);
+        $test = DB::select('select * from student_test inner join student on student.student_id = student_test.student_id inner join test on test.test_id = student_test.test_id where student.student_id = ?',[$student_id]);
+        $faculity = DB::select('select * from faculity INNER join field on field.field_id = faculity.faculity_field WHERE faculity.faculity_field = ?',[$student[0]->field_id]);
+
+        
+        return view('frontend.my-profile', compact('student','faculity' , 'test'));
+
     }
 
     public function teacherlogin(){

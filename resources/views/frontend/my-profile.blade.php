@@ -6,16 +6,20 @@
             <div class="col-md-2 col-sm-2 p-0 m-0 bg-success">
                 <ul class="list-unstyled">
                     <li style="border-bottom: 2px solid white; margin: 0; padding: 10px;"><a onclick="myprofile(event)"
-                            style="color: white; padding: 0; margin: 0%;" href="">My Profile</a></li>
+                        style="color: white; padding: 0; margin: 0%;" href="">My Profile</a></li>
+
                     <li style="border-bottom: 2px solid white; margin: 0; padding: 10px;"><a onclick="test_detail(event)"
-                            style="color: white; padding: 0; margin: 0%;" href="">My Test Details</a></li>
+                        style="color: white; padding: 0; margin: 0%;" href="">My Test Details</a></li>
+
                     <li style="border-bottom: 2px solid white; margin: 0; padding: 10px;"><a onclick="my_faculity(event)"
-                            style="color: white; padding: 0; margin: 0%;" href="">My Faculity</a></li>
+                        style="color: white; padding: 0; margin: 0%;" href="">My Faculity</a></li>
                 </ul>
             </div>
 
             <div class="col-md-10 col-sm-10" style="overflow: hidden !important;" id="data">
-
+                <h1 class="mt-4 text-center text-success"> <span class="">Welcome !</span><br />
+                    {{ $student[0]->student_name }}
+                </h1>
             </div>
 
 
@@ -24,6 +28,7 @@
     </div>
     <script>
         // MYPROFILE
+
         function myprofile(event) {
             event.preventDefault();
             var data = document.getElementById('data');
@@ -133,9 +138,11 @@
                   </div>
         `
         }
-        // MYPROFILE
+        </script>
+        {{-- MYPROFILE --}}
 
-        // MYPFACULITY
+
+    <script>
         function my_faculity(event) {
             event.preventDefault();
             var data = document.getElementById('data');
@@ -146,14 +153,14 @@
                     <hr>
   <div class="col-md-4">
     <p class="fw-bold">Full Name</p>
-    <p>{{ $student[0]->faculity_name }}</p>
+    <p>{{ $faculity[0]->faculity_name }}</p>
   </div>
   <div class="col-md-4">
     <p class="fw-bold">Qualification</p>
-    <p>{{ $student[0]->faculity_qualification }}</p>
+    <p>{{ $faculity[0]->faculity_qualification }}</p>
   </div>
   <div class="col-md-4">
-    <img src="{{ url('/') }}/public/faculityinfo/{{ $student[0]->faculity_image }}" width="100px" height="100px" alt="">
+    <img src="{{ url('/') }}/public/faculityinfo/{{ $faculity[0]->faculity_image }}" width="100px" height="100px" alt="">
   </div>
 
 </div>
@@ -163,30 +170,18 @@
 
   <div class="col-md-4">
     <p class="fw-bold">Contact & Whats app</p>
-    <p>{{ $student[0]->faculity_contact }}</p>
-  </div>
-  <div class="col-md-4">
-    <p class="fw-bold"> Contact 2 </p>
-    <p>{{ $student[0]->faculity_contact2 }}</p>
-  </div>
-  <div class="col-md-4">
-    <p class="fw-bold">Faculity CNIC </p>
-    <p>{{ $student[0]->faculity_cnic }}</p>
-  </div>
-  <div class="col-md-4">
-    <p class="fw-bold">Address</p>
-    <p>{{ $student[0]->faculity_address }}</p>
+    <p>{{ $faculity[0]->faculity_contact }}</p>
   </div>
   <div class="col-md-4">
     <p class="fw-bold">Experience</p>
-    <p>{{ $student[0]->experience }} Year</p>
+    <p>{{ $faculity[0]->experience }} Year</p>
   </div>
   <div class="col-md-4">
     <p class="fw-bold">Gender</p>
-    @if ($student[0]->faculity_gender == 'M')
+    @if ($faculity[0]->faculity_gender == 'M')
     <p>Male</p>
     @endif
-    @if ($student[0]->faculity_gender == 'F')
+    @if ($faculity[0]->faculity_gender == 'F')
     <p>Female</p>
     @endif
   </div>
@@ -199,18 +194,18 @@
 
   <div class="col-md-4">
     <p class="fw-bold">Field</p>
-    <p>{{ $student[0]->field_name }}</p>
+    <p>{{ $faculity[0]->field_name }}</p>
   </div>
   <div class="col-md-4">
     <p class="fw-bold">Email</p>
-    <p>{{ $student[0]->faculity_email }}</p>
+    <p>{{ $faculity[0]->faculity_email }}</p>
   </div>
   <div class="col-md-4">
     <p class="fw-bold">Status</p>
-    @if ($student[0]->faculity_status == 0)
+    @if ($faculity[0]->faculity_status == 0)
     <p class="badge bg-danger">Inactive</p>
     @endif
-    @if ($student[0]->faculity_status == 1)
+    @if ($faculity[0]->faculity_status == 1)
     <p class="badge bg-success">Active</p>
     @endif
   </div>
@@ -225,12 +220,18 @@
 </div>
         `
         }
+    </script>
+
+
+
+
+<script>
         // MYFACULITY
 
 
 
-         // MYTEST
-         function test_detail(event) {
+        // MYTEST
+        function test_detail(event) {
             event.preventDefault();
             var data = document.getElementById('data');
             data.innerHTML = `
@@ -238,7 +239,6 @@
                     <div class="row mt-3 align-items-center">
                       <h5>Test Info</h5>
                       <hr>
-
                       <div class="col-md-4">
                         <p class="fw-bold">Full Name</p>
                         <p>{{ $student[0]->student_name }}</p>
@@ -253,24 +253,26 @@
 
                     </div>
                     <div class="row align-items-center">
-                      <h5>Test Info</h5>
+                        <h5>Test Info</h5>
+                        @foreach ($test as $item)
                       <hr>
 
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <p class="fw-bold">Test Title</p>
-                        <p>{{ $student[0]->test_title }}</p>
+                        <p>{{ $item->test_title }}</p>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <p class="fw-bold">Test Marks</p>
-                        <p>{{ $student[0]->test_marks }}</p>
+                        <p>{{ $item->test_marks }}</p>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                         <p class="fw-bold">Obtain Marks </p>
-                        <p>{{ $student[0]->obtain_marks }}</p>
+                        <p>{{ $item->obtain_marks }}</p>
                       </div>
-                      <div class="col-md-4">
+
+                      <div class="col-md-3">
                         <p class="fw-bold">Test Status: </p>
-                        @if ($student[0]->status == 1)
+                        @if ($item->status == 1)
                             <div class="badge bg-success">Pass</div>
                             @else
                             <div class="badge bg-danger">Fail</div>
@@ -278,6 +280,7 @@
                         <p></p>
                       </div>
 
+                      @endforeach
                     </div>
 
           <hr>
